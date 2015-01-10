@@ -1,4 +1,5 @@
 from __future__ import absolute_import
+import sys
 from makore.fetchers.haaretz import Haaretz
 from makore.fetchers.walla import Walla
 from makore.fetchers.ynet import Ynet
@@ -21,4 +22,4 @@ if __name__ == "__main__":
 
     html = template.render(headlines=headlines)
 
-    open("/tmp/makore.html", "w").write(html.encode("utf-8"))
+    open(sys.argv[1], "w").write(html.encode("utf-8"))
