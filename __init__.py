@@ -13,11 +13,10 @@ if __name__ == "__main__":
     env = Environment(loader=PackageLoader('makore', 'templates'))
     template = env.get_template('main.html')
 
-
     headlines = [
-        {"provider": "haaretz", "headline": Haaretz().get_headline()},
-        {"provider": "walla", "headline": Walla().get_headline()},
-        {"provider": "ynet", "headline": Ynet().get_headline()},
+        Haaretz().get_headline(),
+        Walla().get_headline(),
+        Ynet().get_headline(),
     ]
 
     html = template.render(headlines=headlines)

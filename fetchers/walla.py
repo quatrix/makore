@@ -4,6 +4,7 @@ __author__ = 'quatrix'
 
 class Walla(HTMLHeadLineFetcher):
     __url__ = "http://news.walla.co.il"
+    __favicon__ = "http://walla.co.il/favicon.ico"
 
     @property
     def headline(self):

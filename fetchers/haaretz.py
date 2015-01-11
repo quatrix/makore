@@ -6,6 +6,7 @@ __author__ = 'quatrix'
 
 class Haaretz(HTMLHeadLineFetcher):
     __url__ = "http://haaretz.co.il"
+    __favicon__ = "http://haaretz.co.il/favicon.ico"
 
     @property
     def headline(self):

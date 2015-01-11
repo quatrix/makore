@@ -4,6 +4,7 @@ __author__ = 'quatrix'
 
 class Ynet(HTMLHeadLineFetcher):
     __url__ = "http://ynet.co.il"
+    __favicon__ = "http://ynet.co.il/favicon.ico"
 
     @property
     def headline(self):

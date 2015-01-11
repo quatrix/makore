@@ -22,4 +22,5 @@ class HTMLHeadLineFetcher(object):
             "text": self.text,
             "url": self.url,
             "image": self.image,
+            "icon": self.__favicon__
         }

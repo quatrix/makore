@@ -3,18 +3,80 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
+
+    <style>
+        @import url(http://fonts.googleapis.com/earlyaccess/opensanshebrew.css);
+
+        .headline h1 {
+            color: #000000;
+            text-decoration: none;
+            font-family: 'Open Sans Hebrew', serif;
+            font-size: 40px;
+        }
+
+        .headline {
+            display: inline;
+            text-align: right;
+            float: right;
+            width: 50%
+        }
+
+        .image { 
+            display: inline;
+            width: 500px
+            height: 280px
+            overflow: hidden;
+        }
+
+        .image img {
+            width: 500px;
+            height: 280px;
+        }
+
+        .story { 
+            position: relative;
+            margin-left: 50px;
+            margin-right: 50px;
+        }
+
+        .icon {
+            display: inline;
+            position: absolute;
+            bottom: 0px;
+            right: 0px;
+        }
+
+        .icon img {
+            width: 48px;
+            height: 48px:
+        }
+        .body {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+
 </head>
 <body>
+<div class="body">
 {% for headline in headlines %}
-  <div>
-      <h4>{{ headline["provider"] }}</h4>
-      <a href="{{ headline["headline"]["url"] }}">
-          <h1>{{ headline["headline"]["text"] }}</h1>
+  <div class="story">
+      <a href="{{ headline["url"] }}">
+          <div class="headline">
+              <h1>{{ headline["text"] }}</h1>
+          </div>
+          <div class="image">
+              <img src="{{ headline["image"] }}" />
+          </div>
+          <div class="icon">
+              <img src="{{ headline["icon"] }}">
+          </div>
       </a>
-      <img src="{{ headline["headline"]["image"] }}" />
   </div>
+  <hr>
 {% endfor %}
-
+</div>
 
 </body>
 </html>
