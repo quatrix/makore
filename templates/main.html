@@ -2,79 +2,134 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title></title>
+    <title>ma kore</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
 
     <style>
-        @import url(http://fonts.googleapis.com/earlyaccess/opensanshebrew.css);
+      @import url(http://fonts.googleapis.com/earlyaccess/opensanshebrew.css);
 
-        .headline h1 {
-            color: #000000;
-            text-decoration: none;
-            font-family: 'Open Sans Hebrew', serif;
-            font-size: 40px;
+      body {
+        padding-top:150px;
+      }
+
+      h1 {
+        margin: 0px;
+        text-align: right;
+        direction: rtl;
+        font-family: 'Open Sans Hebrew', Sans;
+        font-weight: bold;
+        margin-right: 30px;
+      }
+      
+      hr {
+        display: block;
+        height: 1px;
+        border: 0;
+        border-top: 1px solid #ccc;
+        margin: 10px 0;
+        padding: 0;
+      }
+
+      div {
+        padding: 0px;
+      }
+
+      .row {
+        position: relative;
+      }
+      .icon {
+        position: absolute;
+        bottom: 20px;
+        right: 30px;
+      }
+
+      .navbar {
+        height: 125px;
+        background-color: black;
+      }
+
+      .headline-image {
+        margin-left: 30px;
+      }
+
+      .logo {
+        position: absolute;
+        right: 20px;
+      }
+
+      .share {
+        position: absolute;
+        bottom: 15px;
+      }
+
+      /* desktop */
+      @media screen and (max-width: 992px) {
+        h1 {
+          font-size: 46px;
+          line-height: 55px;
         }
 
-        .headline {
-            display: inline;
-            text-align: right;
-            float: right;
-            width: 50%
+        .col-xs-6 {
+          padding: 5px;
         }
+      }
 
-        .image { 
-            display: inline;
-            width: 500px
-            height: 280px
-            overflow: hidden;
+      /* iphone */
+      @media screen and (device-aspect-ratio: 40/71) {}
+        h1 {
+          font-size: 46px;
+          line-height:55px;
         }
-
-        .image img {
-            width: 500px;
-            height: 280px;
-        }
-
-        .story { 
-            position: relative;
-            margin-left: 50px;
-            margin-right: 50px;
+        .col-xs-6 {
+          padding: 5px;
+          margin: 0px;
         }
 
         .icon {
-            display: inline;
-            position: absolute;
-            bottom: 0px;
-            right: 0px;
+          height: 42px;
+          width: 42px;
+          margin-right: 5px;
         }
 
-        .icon img {
-            width: 48px;
-            height: 48px:
+        .logo {
+          height: 100%;
         }
-        .body {
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
+
+        .share {
+          height: 80px;
         }
+      }
+
     </style>
 
 </head>
 <body>
-<div class="body">
-{% for headline in headlines %}
-  <div class="story">
-      <a href="{{ headline["url"] }}">
-          <div class="headline">
-              <h1>{{ headline["text"] }}</h1>
-          </div>
-          <div class="image">
-              <img src="{{ headline["image"] }}" />
-          </div>
-          <div class="icon">
-              <img src="{{ headline["icon"] }}">
-          </div>
-      </a>
+
+
+<div class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+    <img class="img-responsive logo" src="http://edisdead.com/makore_logo.jpg">
+    <img class="img-responsive share" src="http://edisdead.com/makore_share.jpg">
+
+    </div>
   </div>
-  <hr>
+</div>
+
+<div class="container-fluid">
+{% for headline in headlines %}
+  <div class="row">
+    <div class="col-md-6 col-sm-6 col-xs-6">
+        <img class="img-responsive headline-image" src="{{ headline["image"] }}" />
+    </div>
+    <div class="col-md-6 col-sm-6 col-xs-6">
+        <h1>{{ headline["text"] }}</h1>
+    </div>
+    <img class="icon" src="{{ headline["icon"] }}">
+  </div>
+
+  <hr/>
 {% endfor %}
 </div>
 
