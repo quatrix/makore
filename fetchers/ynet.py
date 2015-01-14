@@ -1,4 +1,5 @@
 from makore.fetchers.base import HTMLHeadLineFetcher
+import re
 
 __author__ = 'quatrix'
 
@@ -12,14 +13,19 @@ class Ynet(HTMLHeadLineFetcher):
             self._headline = self.html.find(id="cmpTopStory")
         return self._headline
 
+
+    @property
+    def headline_anchor(self):
+        return self.headline.find_all("a", attrs={"class": re.compile(r".*header")})[0]
+
     @property
     def text(self):
-        return self.headline.find_all("a")[1].text
+        return self.headline_anchor.text
 
     @property
     def url(self):
-        return self.__url__ + self.headline.find_all("a")[0].get("href")
+        return self.__url__ + self.headline_anchor.get("href")
 
     @property
     def image(self):
-        return self.headline.img.get("src")
+        return self.headline.find("img", attrs={"title": re.compile(".+")}).get("src")

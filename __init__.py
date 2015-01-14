@@ -4,6 +4,7 @@ from makore.fetchers.haaretz import Haaretz
 from makore.fetchers.walla import Walla
 from makore.fetchers.ynet import Ynet
 from jinja2 import Environment, PackageLoader
+import json
 
 
 __author__ = 'quatrix'
@@ -21,4 +22,5 @@ if __name__ == "__main__":
 
     html = template.render(headlines=headlines)
 
+    print(json.dumps(headlines, indent=4))
     open(sys.argv[1], "w").write(html.encode("utf-8"))
