@@ -7,132 +7,180 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
 
     <style>
-      @import url(http://fonts.googleapis.com/earlyaccess/opensanshebrew.css);
+    @import url(http://fonts.googleapis.com/earlyaccess/opensanshebrew.css);
+    @import url(http://fonts.googleapis.com/earlyaccess/alefhebrew.css);
 
-      body {
-        padding-top:150px;
-      }
+    body {
+      padding-top:150px;
+    }
 
+    h1 {
+      margin: 0px;
+      text-align: right;
+      direction: rtl;
+      font-family: 'Open Sans Hebrew', Sans;
+      font-weight: bold;
+      margin-right: 30px;
+      color: #000000;
+      text-decoration: none;
+    }
+
+    hr {
+      display: block;
+      height: 1px;
+      border: 0;
+      border-top: 1px solid #ccc;
+      margin: 10px 0;
+      padding: 0;
+    }
+
+    .headerline {
+      display: block;
+      height: 1px;
+      border: 0;
+      border-top: 25px solid black;
+      margin: 10px 20px;
+      padding: 0;
+    }
+
+    div {
+      padding: 0px;
+    }
+
+    .row {
+      position: relative;
+    }
+    .icon {
+      position: absolute;
+      bottom: 20px;
+      right: 30px;
+    }
+
+    .headline-image {
+      margin-left: 30px;
+      width: 100%;
+    }
+
+    .headline-image-cont {
+      overflow: hidden;
+    }
+
+    .logo {
+      float: right;
+      margin-right: 10px;
+    }
+
+    .logo img {
+      height: 150px;
+    }
+
+    .date {
+      font-size: 72px;
+      color: #FF6666;
+      font-family: 'Alef Hebrew', Sans;
+      letter-spacing: 3px;
+      position: absolute;
+      bottom: 0px;
+      left: 18px;
+    }
+
+    .headline-meta {
+      color: #FF6666;
+      font-family: 'Alef Hebrew', Sans;
+      text-align: right;
+    }
+
+    /* desktop */
+    @media screen and (max-width: 992px) {
       h1 {
+        font-size: 46px;
+        line-height: 55px;
+      }
+
+      .col-xs-6 {
+        padding: 5px;
+      }
+    }
+
+    /* iphone */
+    @media screen and (device-aspect-ratio: 40/71) {
+      h1 {
+        font-size: 46px;
+        line-height:55px;
+      }
+      .col-xs-6 {
+        padding: 5px;
         margin: 0px;
-        text-align: right;
-        direction: rtl;
-        font-family: 'Open Sans Hebrew', Sans;
-        font-weight: bold;
-        margin-right: 30px;
-        color: #000000;
-        text-decoration: none;
-      }
-      
-      hr {
-        display: block;
-        height: 1px;
-        border: 0;
-        border-top: 1px solid #ccc;
-        margin: 10px 0;
-        padding: 0;
       }
 
-      div {
-        padding: 0px;
-      }
-
-      .row {
-        position: relative;
-      }
       .icon {
-        position: absolute;
-        bottom: 20px;
-        right: 30px;
-      }
-
-      .navbar {
-        height: 125px;
-        background-color: black;
-      }
-
-      .headline-image {
-        margin-left: 30px;
+        height: 42px;
+        width: 42px;
+        margin-right: 5px;
       }
 
       .logo {
-        position: absolute;
-        right: 20px;
+        height: 100%;
       }
 
       .share {
-        position: absolute;
-        bottom: 15px;
+        height: 80px;
       }
 
-      /* desktop */
-      @media screen and (max-width: 992px) {
-        h1 {
-          font-size: 46px;
-          line-height: 55px;
-        }
-
-        .col-xs-6 {
-          padding: 5px;
-        }
+      .headline-text-cont {
+        padding-left: 25px;
       }
 
-      /* iphone */
-      @media screen and (device-aspect-ratio: 40/71) {}
-        h1 {
-          font-size: 46px;
-          line-height:55px;
-        }
-        .col-xs-6 {
-          padding: 5px;
-          margin: 0px;
-        }
-
-        .icon {
-          height: 42px;
-          width: 42px;
-          margin-right: 5px;
-        }
-
-        .logo {
-          height: 100%;
-        }
-
-        .share {
-          height: 80px;
-        }
+      .headline-meta {
+        font-size: 37px;
+        padding-right: 23px;
+        letter-spacing: 3px;
       }
+    }
 
-    </style>
+  </style>
+
 
 </head>
 <body>
 
 
-<div class="navbar navbar-default navbar-fixed-top">
-  <div class="container-fluid">
-    <div class="navbar-header">
-    <img class="img-responsive logo" src="http://edisdead.com/makore_logo.jpg">
-    <img class="img-responsive share" src="http://edisdead.com/makore_share.jpg">
-
-    </div>
-  </div>
-</div>
 
 <div class="container-fluid">
-{% for headline in headlines %}
   <div class="row">
-    <a href="{{ headline["url"] }}">
-        <div class="col-md-6 col-sm-6 col-xs-6">
-            <img class="img-responsive headline-image" src="{{ headline["image"] }}" />
-        </div>
-        <div class="col-md-6 col-sm-6 col-xs-6">
-            <h1>{{ headline["text"] }}</h1>
-        </div>
-        <img class="icon" src="{{ headline["icon"] }}">
-    </a>
+    <div class="col-md-6 date">
+      17.01.15
+    </div>
+
+    <div class="col-md-6 logo">
+      <img class="img-responsive" src="http://edisdead.com/makore_logo.png">
+    </div>
   </div>
 
+  <hr class="headerline" />
+
+{% for headline in headlines %}
+  <div class="row">
+    <a href="{{ headline["url"]}}">
+      <div class="col-md-6 col-sm-6 col-xs-6 headline-image-cont">
+        <img class="img-responsive headline-image" src="{{headline["image"]}}"" />
+      </div>
+      <div class="col-md-6 col-sm-6 col-xs-6">
+        <div class="row headline-meta">
+          <div class="col-md-12 col-sm-12 col-xs-12 headline-meta">
+            {{ headline["publisher"] + " " + headline["date"] }}
+          </div>
+        </div>
+        <div class="row headline-text-cont">
+          <div class="col-md-12 col-sm-12 col-xs-12 headline-text-cont">
+            <h1>{{ headline["text"] }}</h1>
+            </div
+          </div>
+        </div>
+        <img class="icon" src="{{ headline["icon"] }}">
+      </a>
+    </div>
+  </div>
   <hr/>
 {% endfor %}
 </div>

@@ -1,3 +1,4 @@
 *.pyc
 *.swp
 .pyenv
+.DS_Store

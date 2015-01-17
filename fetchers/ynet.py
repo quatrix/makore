@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from makore.fetchers.base import HTMLHeadLineFetcher
 import re
 
@@ -6,6 +8,7 @@ __author__ = 'quatrix'
 class Ynet(HTMLHeadLineFetcher):
     __url__ = "http://ynet.co.il"
     __favicon__ = "http://ynet.co.il/favicon.ico"
+    __publisher__ = "וויינט"
 
     @property
     def headline(self):

@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from makore.fetchers.base import HTMLHeadLineFetcher
 
 __author__ = 'quatrix'
@@ -5,6 +7,7 @@ __author__ = 'quatrix'
 class Walla(HTMLHeadLineFetcher):
     __url__ = "http://news.walla.co.il"
     __favicon__ = "http://walla.co.il/favicon.ico"
+    __publisher__ = "וואלה"
 
     @property
     def headline(self):
