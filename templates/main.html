@@ -11,7 +11,7 @@
     @import url(http://fonts.googleapis.com/earlyaccess/alefhebrew.css);
 
     body {
-      padding-top:150px;
+      padding-top:80px;
     }
 
     h1 {
@@ -25,13 +25,8 @@
       text-decoration: none;
     }
 
-    hr {
-      display: block;
-      height: 1px;
-      border: 0;
-      border-top: 1px solid #ccc;
-      margin: 10px 0;
-      padding: 0;
+    .story {
+        margin-bottom: 20px;
     }
 
     .headerline {
@@ -40,7 +35,12 @@
       border: 0;
       border-top: 25px solid black;
       margin: 10px 20px;
+      margin-bottom: 60px;
       padding: 0;
+    }
+
+    .footer_line {
+        margin-top: 55px;
     }
 
     div {
@@ -50,10 +50,11 @@
     .row {
       position: relative;
     }
+
     .icon {
       position: absolute;
       bottom: 20px;
-      right: 30px;
+      left: 45px;
     }
 
     .headline-image {
@@ -75,10 +76,9 @@
     }
 
     .date {
-      font-size: 72px;
+      font-size: 80px;
       color: #FF6666;
       font-family: 'Alef Hebrew', Sans;
-      letter-spacing: 3px;
       position: absolute;
       bottom: 0px;
       left: 18px;
@@ -134,7 +134,7 @@
       .headline-meta {
         font-size: 37px;
         padding-right: 23px;
-        letter-spacing: 3px;
+        letter-spacing: 1px;
       }
     }
 
@@ -160,10 +160,11 @@
   <hr class="headerline" />
 
 {% for headline in headlines %}
-  <div class="row">
+  <div class="row story">
     <a href="{{ headline["url"]}}">
       <div class="col-md-6 col-sm-6 col-xs-6 headline-image-cont">
         <img class="img-responsive headline-image" src="{{headline["image"]}}"" />
+        <img class="icon" src="{{ headline["icon"] }}">
       </div>
       <div class="col-md-6 col-sm-6 col-xs-6">
         <div class="row headline-meta">
@@ -177,13 +178,14 @@
             </div
           </div>
         </div>
-        <img class="icon" src="{{ headline["icon"] }}">
       </a>
     </div>
   </div>
-  <hr/>
 {% endfor %}
+
+<hr class="headerline footer_line" />
 </div>
+
 
 </body>
 </html>

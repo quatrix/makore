@@ -46,13 +46,11 @@ if __name__ == "__main__":
     env = Environment(loader=PackageLoader('makore', 'templates'))
     template = env.get_template('main.html')
 
-    """
     headlines = [
         Haaretz().get_headline(),
         Walla().get_headline(),
         Ynet().get_headline(),
     ]
-    """
 
     html = template.render(headlines=headlines)
 
